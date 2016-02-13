@@ -1,0 +1,20 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonController.js">
+    <Files>
+      <File FileName="Assets\Scripts\GameLogic\Collision\PlatformCollision.js" Line="5" Column="2" />
+      <File FileName="Assets\Scripts\GameLogic\ScoreManager.js" Line="17" Column="60" />
+      <File FileName="Assets\Scripts\Level\GenerateLevel.js" Line="177" Column="43" />
+      <File FileName="Assets\Scripts\SceneManager\Scenes.js" Line="33" Column="10" />
+      <File FileName="Assets\Scripts\Movement\MoveDown.js" Line="5" Column="2" />
+      <File FileName="Assets\Scripts\Movement\MoveForwardBackward.js" Line="19" Column="48" />
+      <File FileName="Assets\Scripts\GameLogic\Collision\EnemyCollision.js" Line="18" Column="2" />
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonController.js" Line="350" Column="1" />
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonCamera.js" Line="150" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

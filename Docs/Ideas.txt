@@ -1,0 +1,8 @@
+enemies
+birds
+planes
+
+platforms
+leafs
+
+other level - space + stars + astroid + crystal

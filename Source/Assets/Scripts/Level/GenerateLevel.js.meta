@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: d60ab77d99c4a4b43af44c7e27167bfa
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - prefabPlatform: {fileID: 400000, guid: 6fbe6509102bcb34ab62d8997c30ebb3, type: 2}
+  - prefabFloor: {fileID: 400000, guid: 245ba9eac64785541808644a9ce53e43, type: 2}
+  - prefabCeiling: {fileID: 400000, guid: 92f6c92fa43b08f4fae7d72fc896cda5, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
