@@ -16,7 +16,7 @@ public class MoveUp : MonoBehaviour
     void Update()
     {
          Vector3 p = transform.position;
-         p.y+= moveSpeed;
+         p.y += moveSpeed;
          transform.position = p;        
     }
 }

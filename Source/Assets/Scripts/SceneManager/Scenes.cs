@@ -18,7 +18,7 @@ public class Scenes : MonoBehaviour
         levelMessage = "";        
     }
 
-    void GoToMainMenu()
+    public void GoToMainMenu()
     {
         levelID = 0;
         levelSeed = 0;
@@ -26,7 +26,7 @@ public class Scenes : MonoBehaviour
         Application.LoadLevel("MainMenu"); 
     }
 
-    bool IsMainMenu()
+    public bool IsMainMenu()
     {
         if (levelID == 0) return true;
         else return false;
@@ -74,22 +74,22 @@ public class Scenes : MonoBehaviour
     }
 
     /* Level Handling */
-    void FailLevelTime()
+    public void FailLevelTime()
     {
         GoToLevel(levelID, "Your time is up!");
     }
 
-    void FailLevelCeiling()
+    public void FailLevelCeiling()
     {
         GoToLevel(levelID, "You didn't escape from the ceiling!");
     }
 
-    void FailLevelHealth()
+    public void FailLevelHealth()
     {
         GoToLevel(levelID, "You were killed from the damage!");
     }
 
-    void CompleteLevel()
+    public void CompleteLevel()
     {
         GoToLevel(levelID+1, "Your completed the level!");
     }

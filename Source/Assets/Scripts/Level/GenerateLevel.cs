@@ -18,33 +18,32 @@ public class GenerateLevel : MonoBehaviour
 
     /* Level */
     public int xzRange = 10; //level size
-    int initialGeneratedFloorY = -50; //floor
-    int initialGeneratedCeilingY = 50; //ceiling
+    public int initialGeneratedFloorY = -50; //floor
+    public int initialGeneratedCeilingY = 50; //ceiling
 
     /* Platform */
-    int distanceBetweenPlatformYMin = 1;
-    int distanceBetweenPlatformYMax = 3;
-    int initialGeneratedPlatformY = -3;
+    public int distanceBetweenPlatformYMin = 1;
+    public int distanceBetweenPlatformYMax = 3;
+    public int initialGeneratedPlatformY = -3;
 
     /* Collectible */
-    int distanceBetweenCollectibleYMin = 4;
-    int distanceBetweenCollectibleYMax = 8;
-    int initialGeneratedCollectibleY = -15;
+    public int distanceBetweenCollectibleYMin = 4;
+    public int distanceBetweenCollectibleYMax = 8;
+    public int initialGeneratedCollectibleY = -15;
 
     /* Enemy */
-    int distanceBetweenEnemyYMin = 4;
-    int distanceBetweenEnemyYMax  = 8;
-    int initialGeneratedEnemyY = -15;
+    public int distanceBetweenEnemyYMin = 4;
+    public int distanceBetweenEnemyYMax  = 8;
+    public int initialGeneratedEnemyY = -15;
 
     /* MovingEnemy */
-    int distanceBetweenMovingEnemyYMin = 10;
-    int distanceBetweenMovingEnemyYMax = 20;
-    int initialGeneratedMovingEnemyY = -50;
+    public int distanceBetweenMovingEnemyYMin = 10;
+    public int distanceBetweenMovingEnemyYMax = 20;
+    public int initialGeneratedMovingEnemyY = -50;
 
     int randomSeed;
     int mapSize;
     int levelID;
-
 
     // Start is called before the first frame update
     void Start()

@@ -43,3 +43,14 @@
  # Builds
  *.apk
  *.unitypackage
+
+Source/Temp
+Source/Library/PackageCache
+Source/Library/ShaderCache
+Source/Library/StateCache
+Source/Library/ScriptAssemblies
+Source/Library/metadata
+Source/library/*.log
+Source/Logs
+Source/obj
+
