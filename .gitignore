@@ -45,13 +45,10 @@
  *.unitypackage
 
 Source/Temp
-Source/Library/PackageCache
-Source/Library/ShaderCache
-Source/Library/StateCache
-Source/Library/ScriptAssemblies
 Source/Library/metadata
 Source/Library/*.log
 Source/Library/*Cache*
+Source/Library/*Assemblies*
 Source/Logs
 Source/obj
 

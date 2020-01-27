@@ -69,7 +69,7 @@ public class Scenes : MonoBehaviour
         Application.LoadLevel("Menu"); 
     }
 
-    void StartLevel() {
+    public void StartLevel() {
         Application.LoadLevel("MainScene"); 
     }
 
@@ -91,7 +91,7 @@ public class Scenes : MonoBehaviour
 
     public void CompleteLevel()
     {
-        GoToLevel(levelID+1, "Your completed the level!");
+        GoToLevel(levelID + 1, "Your completed the level!");
     }
 
     /* Scene Status*/

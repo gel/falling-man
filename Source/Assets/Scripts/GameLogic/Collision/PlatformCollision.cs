@@ -20,12 +20,15 @@ public class PlatformCollision : MonoBehaviour
     //Detect collisions between the GameObjects with Colliders attached
     void OnCollisionEnter(Collision collision)
     {
-        if (!enableCollisionLogic) return;
+        Debug.Log("Collision logic happened on " + GetInstanceID());
+
+        if (!enableCollisionLogic) 
+            return;
         
         float hitVelocity = collision.relativeVelocity.magnitude;
 
         enableCollisionLogic = false;
-        //Debug.Log("Collision logic happened on " + GetInstanceID());
+        
         GameObject.Find("Level").GetComponent<PlayerMovementManager>().FallDamage(hitVelocity);
 
         this.GetComponent<Renderer>().material.color = Color.blue;
