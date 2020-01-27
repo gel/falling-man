@@ -21,6 +21,11 @@ public class FloorCollision : MonoBehaviour
     //Detect collisions between the GameObjects with Colliders attached
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag != "Player")
+            return;
+        
+        Debug.Log("Floor collision logic happened on " + GetInstanceID());
+
         float hitVelocity = collision.relativeVelocity.magnitude;
         GameObject.Find("Level").GetComponent<PlayerMovementManager>().FallDamage(hitVelocity);
         GameObject world = GameObject.Find("Level");

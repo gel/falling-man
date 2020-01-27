@@ -17,14 +17,23 @@ public class PlatformCollision : MonoBehaviour
         }        
     }
 
+    void OnTriggerEnter() 
+    {
+        //Debug.Log("Trigger logic happened on " + GetInstanceID());
+        //this.GetComponent<Renderer>().material.color = Color.yellow;
+    }
+
     //Detect collisions between the GameObjects with Colliders attached
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision logic happened on " + GetInstanceID());
-
-        if (!enableCollisionLogic) 
+        if (!enableCollisionLogic)
+            return;
+                
+        if (collision.gameObject.tag != "Player")
             return;
         
+        Debug.Log("Platform collision logic happened on " + GetInstanceID());
+
         float hitVelocity = collision.relativeVelocity.magnitude;
 
         enableCollisionLogic = false;

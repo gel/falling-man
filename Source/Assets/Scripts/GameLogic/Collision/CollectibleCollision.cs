@@ -21,12 +21,14 @@ public class CollectibleCollision : MonoBehaviour
     //Detect collisions between the GameObjects with Colliders attached
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            Destroy (gameObject);
-            GameObject world = GameObject.Find("Level");
-            ScoreManager scoreManager = world.GetComponent<ScoreManager>();
-            scoreManager.AddOffset(CollectibleBonus);
-        }     
+        if (collision.gameObject.tag != "Player")
+            return;
+        
+        Debug.Log("Collectible collision logic happened on " + GetInstanceID());
+
+        Destroy (gameObject);
+        GameObject world = GameObject.Find("Level");
+        ScoreManager scoreManager = world.GetComponent<ScoreManager>();
+        scoreManager.AddOffset(CollectibleBonus);
     }    
 }
