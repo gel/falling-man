@@ -243,12 +243,13 @@ MonoBehaviour:
   prefabMovingEnemy: {fileID: 100000, guid: c8b844c6b9c642b40a528083f841d3fc, type: 3}
   prefabBorder: {fileID: 100000, guid: cce90b5fefad13445b8f25461b7f133e, type: 3}
   distanceThreshold: 30
-  xzRange: 30
+  xzRange: 10
   initialGeneratedFloorY: -50
   initialGeneratedCeilingY: 50
   distanceBetweenPlatformYMin: 1
   distanceBetweenPlatformYMax: 3
   initialGeneratedPlatformY: -3
+  platformYDensityMultiplier: 3
   distanceBetweenCollectibleYMin: 4
   distanceBetweenCollectibleYMax: 8
   initialGeneratedCollectibleY: -15
@@ -451,8 +452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 840c7ec3795df28438638887d10e3738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bEnableSound: 0
-  bEnableMusic: 0
+  bEnableSound: 1
+  bEnableMusic: 1
   onLevelStartSound: {fileID: 8300000, guid: 5256104ab23a71c4ab838e938c8728b7, type: 3}
   onJumpSound: {fileID: 8300000, guid: c92c090eceae32446812ae783ede3c15, type: 3}
   onLandSound: {fileID: 8300000, guid: 5256104ab23a71c4ab838e938c8728b7, type: 3}
@@ -507,6 +508,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb24ca3cff742004daf090fcb64775b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerScore: 0
+  jumpingPowerUpScore: 0
+  fallDamagePowerUpScore: 6
 --- !u!33 &24
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -778,6 +782,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b80fa9a22b6f9c04e82c07049b0bd6ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentVelocity: 0
+  currentComboes: 0
+  jumpingMode: 1
+  fallDamageMode: 1
+  maxFallVelocity: 0
+  maxFallThreshold: 0.5
+  fallDamage: 0
+  fallDamageStartTime: 0
+  fallSeconds: 0
 --- !u!114 &37
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -803,9 +816,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement:
-    maxForwardSpeed: 3
-    maxSidewaysSpeed: 2
-    maxBackwardsSpeed: 2
+    maxForwardSpeed: 5
+    maxSidewaysSpeed: 5
+    maxBackwardsSpeed: 3
     slopeSpeedMultiplier:
       serializedVersion: 2
       m_Curve:
@@ -856,7 +869,7 @@ MonoBehaviour:
     enabled: 1
     slidingSpeed: 15
     sidewaysControl: 1
-    speedControl: 0.4
+    speedControl: 0.6
 --- !u!82 &39
 AudioSource:
   m_ObjectHideFlags: 0
@@ -979,7 +992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35cd35eeb00d6584ab23fdc29beedcd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KeepSceneViewActive: 1
+  KeepSceneViewActive: 0
 --- !u!114 &45
 MonoBehaviour:
   m_ObjectHideFlags: 0
