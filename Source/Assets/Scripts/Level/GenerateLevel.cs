@@ -6,6 +6,8 @@ public class GenerateLevel : MonoBehaviour
 {
     public GameObject prefabPlatform;
     public GameObject prefabFloor;
+    GameObject floor;
+
     public GameObject prefabCeiling;
     public GameObject prefabCollectible;
     public GameObject prefabEnemy;
@@ -48,10 +50,12 @@ public class GenerateLevel : MonoBehaviour
     public int mapSize = 3000;
     public int levelID = 9999;
 
+    GameObject sceneManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        var sceneManager = GameObject.Find("SceneManager");
+        sceneManager = GameObject.Find("SceneManager");
         
         if (sceneManager == null)
         {
@@ -87,13 +91,24 @@ public class GenerateLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GeneratePlatform();
+        bool canCompleteLevel = CanCompleteLevel();
+        GeneratePlatform(canCompleteLevel);
         GenerateEnemy();
         GenerateMovingEnemy();
         GenerateCollectible();        
     }
 
-    void GeneratePlatform()
+    bool CanCompleteLevel()
+    {
+        GameObject camera = GameObject.Find("Main Camera");
+        if (camera.transform.position.y * -1 < mapSize - (1.5f * distanceThreshold))
+            return false;
+
+        Debug.Log("Level can be completed");
+        return true;
+    }
+
+    void GeneratePlatform(bool canCompleteLevel)
     {
         GameObject camera = GameObject.Find("Main Camera");
 
@@ -109,9 +124,12 @@ public class GenerateLevel : MonoBehaviour
                 var randomZ=Random.Range(-xzRange,xzRange);
                 
                 maxRandomY = maxRandomY > randomY ? maxRandomY : randomY;
-                Instantiate(prefabPlatform,
+                GameObject platform = Instantiate(prefabPlatform,
                             new Vector3(randomX, platformY - randomY, randomZ),
                             Quaternion.identity);
+                
+                if (canCompleteLevel)
+                    platform.GetComponent<Renderer>().material.color = Color.green;
                 //Debug.Log("GeneratePlatform.js: Generated platform X: " + randomX + " Y: " + platformY +" Z: " +randomZ);
             }
 
@@ -210,7 +228,7 @@ public class GenerateLevel : MonoBehaviour
     {
         Debug.Log("GeneratePlatform.js: Generated floor " + 
                         "X: " + floorX + " Y: " + floorY +" Z: " + floorZ); 			
-        GameObject floor = Instantiate(prefabFloor,
+        floor = Instantiate(prefabFloor,
                                 new Vector3(floorX,floorY,floorZ),
                                 Quaternion.identity);
         var scale = floor.transform.localScale;

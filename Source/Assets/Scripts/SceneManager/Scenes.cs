@@ -40,25 +40,25 @@ public class Scenes : MonoBehaviour
         {
             case 1:
                 levelSeed = 1;
-                levelMapSize = 700;
+                levelMapSize = 50;
                 levelStartTime = 10;
                 platformBonus = 2;
                 break;
             case 2:
                 levelSeed = 2;
-                levelMapSize = 1000;
+                levelMapSize = 100;
                 levelStartTime = 10;
                 platformBonus = 2;
                 break;
             case 3:
                 levelSeed = 3;
-                levelMapSize = 1300;
+                levelMapSize = 200;
                 levelStartTime = 10;
                 platformBonus = 1;
                 break;
             case 4:
                 levelSeed = 30;
-                levelMapSize = 2000;
+                levelMapSize = 400;
                 levelStartTime = 10;
                 platformBonus = 1;
                 break;

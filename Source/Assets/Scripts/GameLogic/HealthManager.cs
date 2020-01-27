@@ -33,7 +33,8 @@ public class HealthManager : MonoBehaviour
         if (PlayerHealth == 0 )
         {
             var sceneManager = GameObject.Find("SceneManager");
-            if (sceneManager != null) sceneManager.GetComponent<Scenes>().FailLevelHealth();
+            if (sceneManager != null) 
+                sceneManager.GetComponent<Scenes>().FailLevelHealth();
         }
     }
 

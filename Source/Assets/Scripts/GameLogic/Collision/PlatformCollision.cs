@@ -6,11 +6,12 @@ public class PlatformCollision : MonoBehaviour
 {
     int offsetToTime = 2;
     bool enableCollisionLogic = true;
+    GameObject sceneManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        var sceneManager = GameObject.Find("SceneManager");
+        sceneManager = GameObject.Find("SceneManager");
         if (sceneManager != null)
         {
             offsetToTime = sceneManager.GetComponent<Scenes>().GetPlatformBonus();
@@ -32,14 +33,19 @@ public class PlatformCollision : MonoBehaviour
         if (collision.gameObject.tag != "Player")
             return;
         
-        Debug.Log("Platform collision logic happened on " + GetInstanceID());
+        Debug.Log("Platform collision logic happened on ID: " + GetInstanceID() + " y: " + transform.position.y);
+        enableCollisionLogic = false;
+
+        if (this.GetComponent<Renderer>().material.color == Color.green) // hack
+        {
+            if (sceneManager != null) 
+            {
+                sceneManager.GetComponent<Scenes>().CompleteLevel();
+            }
+        }
 
         float hitVelocity = collision.relativeVelocity.magnitude;
-
-        enableCollisionLogic = false;
-        
         GameObject.Find("Level").GetComponent<PlayerMovementManager>().FallDamage(hitVelocity);
-
         this.GetComponent<Renderer>().material.color = Color.blue;
         GameObject.Find("Level").GetComponent<TimeManager>().AddOffsetToTime(offsetToTime);        
     }

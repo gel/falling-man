@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FloorCollision : MonoBehaviour
 {
-    int FloorDamage = -1;
+    public int FloorDamage = -100;
 
     // Start is called before the first frame update
     void Start()

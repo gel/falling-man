@@ -10,7 +10,7 @@ public class DebugLevelScene : MonoBehaviour
     {
         if (this.KeepSceneViewActive && Application.isEditor)
         {
-            UnityEditor.SceneView.FocusWindowIfItsOpen(typeof(UnityEditor.SceneView));
+            //UnityEditor.SceneView.FocusWindowIfItsOpen(typeof(UnityEditor.SceneView));
         }
     }
 
