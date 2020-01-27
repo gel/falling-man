@@ -33,7 +33,7 @@ public class Scenes : MonoBehaviour
     }
 
     /* Level Loading */
-    void GoToLevel(int levelID, string levelMessage) {
+    public void GoToLevel(int levelID, string levelMessage) {
         Scenes.levelID = levelID;
         Scenes.levelMessage = levelMessage;
         switch(levelID)

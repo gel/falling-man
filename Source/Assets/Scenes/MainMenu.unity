@@ -129,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7}
-  - component: {fileID: 14}
+  - component: {fileID: 13}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 11}
   - component: {fileID: 12}
   - component: {fileID: 10}
-  - component: {fileID: 15}
+  - component: {fileID: 14}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -253,7 +253,7 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6}
   m_Enabled: 1
---- !u!114 &14
+--- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,10 +262,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13be4ec6c2281e942a904fefc04d41fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 3eea706e894610241a386c285d1b8322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &15
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -274,9 +274,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71042758997b0d148881ef10cb2952f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 795f5f30965b13c459a5df4bfdc86493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPopertionalWidth: 0.2
-  itemPopertionalHeight: 0.1
-  itemPropertionalSpacing: 0.2
+  itemProportionalWidth: 0.3
+  itemProportionallHeight: 0.2
+  itemProportionalSpacing: 0.2
