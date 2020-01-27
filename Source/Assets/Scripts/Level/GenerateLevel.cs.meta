@@ -3,7 +3,14 @@ guid: f664cd03e366a1b42ad742cf88b41d63
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - prefabPlatform: {fileID: 100000, guid: 6fbe6509102bcb34ab62d8997c30ebb3, type: 3}
+  - prefabFloor: {fileID: 100000, guid: 245ba9eac64785541808644a9ce53e43, type: 3}
+  - prefabCeiling: {fileID: 100000, guid: 92f6c92fa43b08f4fae7d72fc896cda5, type: 3}
+  - prefabCollectible: {fileID: 100000, guid: 5530a526788105946943d68e79d0fb28, type: 3}
+  - prefabEnemy: {fileID: 100000, guid: 27988fe11163dde4a96e8bfaf8e420ea, type: 3}
+  - prefabMovingEnemy: {fileID: 100000, guid: c8b844c6b9c642b40a528083f841d3fc, type: 3}
+  - prefabBorder: {fileID: 100000, guid: cce90b5fefad13445b8f25461b7f133e, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

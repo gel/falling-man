@@ -50,7 +50,8 @@ Source/Library/ShaderCache
 Source/Library/StateCache
 Source/Library/ScriptAssemblies
 Source/Library/metadata
-Source/library/*.log
+Source/Library/*.log
+Source/Library/*Cache*
 Source/Logs
 Source/obj
 

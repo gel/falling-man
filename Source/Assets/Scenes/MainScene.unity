@@ -190,8 +190,8 @@ GameObject:
   - component: {fileID: 34}
   - component: {fileID: 46}
   - component: {fileID: 28}
-  - component: {fileID: 48}
   - component: {fileID: 38}
+  - component: {fileID: 40}
   m_Layer: 0
   m_Name: First Person Controller
   m_TagString: Player
@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 21}
   - component: {fileID: 36}
   - component: {fileID: 39}
+  - component: {fileID: 41}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -241,11 +242,12 @@ MonoBehaviour:
   prefabEnemy: {fileID: 100000, guid: 27988fe11163dde4a96e8bfaf8e420ea, type: 3}
   prefabMovingEnemy: {fileID: 100000, guid: c8b844c6b9c642b40a528083f841d3fc, type: 3}
   prefabBorder: {fileID: 100000, guid: cce90b5fefad13445b8f25461b7f133e, type: 3}
-  xzRange: 10
+  distanceThreshold: 30
+  xzRange: 30
   initialGeneratedFloorY: -50
   initialGeneratedCeilingY: 50
-  distanceBetweenPlatformYMin: 3
-  distanceBetweenPlatformYMax: 5
+  distanceBetweenPlatformYMin: 1
+  distanceBetweenPlatformYMax: 3
   initialGeneratedPlatformY: -3
   distanceBetweenCollectibleYMin: 4
   distanceBetweenCollectibleYMax: 8
@@ -256,6 +258,9 @@ MonoBehaviour:
   distanceBetweenMovingEnemyYMin: 10
   distanceBetweenMovingEnemyYMax: 20
   initialGeneratedMovingEnemyY: -50
+  randomSeed: 0
+  mapSize: 3000
+  levelID: 9999
 --- !u!4 &13
 Transform:
   m_ObjectHideFlags: 0
@@ -446,8 +451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 840c7ec3795df28438638887d10e3738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bEnableSound: 1
-  bEnableMusic: 1
+  bEnableSound: 0
+  bEnableMusic: 0
   onLevelStartSound: {fileID: 8300000, guid: 5256104ab23a71c4ab838e938c8728b7, type: 3}
   onJumpSound: {fileID: 8300000, guid: c92c090eceae32446812ae783ede3c15, type: 3}
   onLandSound: {fileID: 8300000, guid: 5256104ab23a71c4ab838e938c8728b7, type: 3}
@@ -839,7 +844,7 @@ MonoBehaviour:
     gravity: 9.81
     maxFallSpeed: 20
   jumping:
-    enabled: 0
+    enabled: 1
     baseHeight: 1
     extraHeight: 4.1
     perpAmount: 0
@@ -948,6 +953,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &40
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482115a815906f548b6418167cc5c386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoRotate: 0
+  maxRotationSpeed: 360
+--- !u!114 &41
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35cd35eeb00d6584ab23fdc29beedcd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KeepSceneViewActive: 1
 --- !u!114 &45
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,25 +1013,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ec2fe99d1108b9d0006a298d76c639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axes: 2
+  axes: 1
   sensitivityX: 15
   sensitivityY: 0
   minimumX: -360
   maximumX: 360
   minimumY: 0
   maximumY: 0
---- !u!114 &48
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47cd73342468a13488bdcf654bdc672d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!196 &51
 NavMeshSettings:
   serializedVersion: 2

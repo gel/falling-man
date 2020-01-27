@@ -38,6 +38,9 @@ public class TimeManager : MonoBehaviour
 
     void OnGUI()
     {
+        if (GameObject.Find("SceneManager") == null)
+            return;
+
         //  I need to make sure that my time is based on when 
         //    this script was first called instead of when my game started 
         float guiTime = Time.time - startTime;

@@ -12,9 +12,7 @@ public class GenerateLevel : MonoBehaviour
     public GameObject prefabMovingEnemy;
     public GameObject prefabBorder;
 
-    int distanceThreshold = 30;
-
-    //TODO: refactor to c# - generator classes
+    public int distanceThreshold = 30;
 
     /* Level */
     public int xzRange = 10; //level size
@@ -25,25 +23,29 @@ public class GenerateLevel : MonoBehaviour
     public int distanceBetweenPlatformYMin = 1;
     public int distanceBetweenPlatformYMax = 3;
     public int initialGeneratedPlatformY = -3;
+    int platformY;
 
     /* Collectible */
     public int distanceBetweenCollectibleYMin = 4;
     public int distanceBetweenCollectibleYMax = 8;
     public int initialGeneratedCollectibleY = -15;
+    int collectibleY;
 
     /* Enemy */
     public int distanceBetweenEnemyYMin = 4;
     public int distanceBetweenEnemyYMax  = 8;
     public int initialGeneratedEnemyY = -15;
+    int enemyY;
 
     /* MovingEnemy */
     public int distanceBetweenMovingEnemyYMin = 10;
     public int distanceBetweenMovingEnemyYMax = 20;
     public int initialGeneratedMovingEnemyY = -50;
+    int movingEnemyY;
 
-    int randomSeed;
-    int mapSize;
-    int levelID;
+    public int randomSeed = 0;
+    public int mapSize = 3000;
+    public int levelID = 9999;
 
     // Start is called before the first frame update
     void Start()
@@ -52,10 +54,7 @@ public class GenerateLevel : MonoBehaviour
         
         if (sceneManager == null)
         {
-            Debug.Log("debugging - running scene alone");
-            levelID = 9999;
-            randomSeed = 0;
-            mapSize = 3000;
+            Debug.Log("Debugging mode - running scene alone");
         }
         else
         {
@@ -66,6 +65,11 @@ public class GenerateLevel : MonoBehaviour
 
         PrintLevelInformation();
         Random.seed = randomSeed;
+
+        platformY = initialGeneratedPlatformY;
+        collectibleY = initialGeneratedCollectibleY;
+        enemyY = initialGeneratedEnemyY;
+        movingEnemyY = initialGeneratedMovingEnemyY;
         GenerateBorderWalls();
         GenerateFloor(0, initialGeneratedFloorY, 0);
         GenerateCeiling(0, initialGeneratedCeilingY,0);             
@@ -87,7 +91,27 @@ public class GenerateLevel : MonoBehaviour
         GenerateMovingEnemy();
         GenerateCollectible();        
     }
-    
+
+    void GeneratePlatform()
+    {
+        GameObject camera = GameObject.Find("Main Camera");
+
+        //Debug.Log("GeneratePlatform camera Y: " + camera.transform.position.y + " platform Y: " + platformY);
+        while (platformY * -1 < mapSize &&
+            camera.transform.position.y < distanceThreshold + platformY)
+        {
+            var randomX=Random.Range(-xzRange, xzRange);
+            var randomY=Random.Range(distanceBetweenPlatformYMin, distanceBetweenPlatformYMax);
+            platformY = platformY - randomY;
+            var randomZ=Random.Range(-xzRange,xzRange);
+            
+            Instantiate(prefabPlatform,
+                        new Vector3(randomX, platformY, randomZ),
+                        Quaternion.identity);
+            //Debug.Log("GeneratePlatform.js: Generated platform X: " + randomX + " Y: " + platformY +" Z: " +randomZ);
+        }
+    }
+
     void GenerateBorderWalls()
     {
         var xzBorderRange = xzRange + 0.5f;
@@ -106,30 +130,8 @@ public class GenerateLevel : MonoBehaviour
         }
     }
 
-    void GeneratePlatform()
-    {
-        int platformY = initialGeneratedPlatformY;
-        GameObject camera = GameObject.Find("Main Camera");
-        while (platformY*-1 < mapSize &&
-            camera.transform.position.y < distanceThreshold + platformY)
-        {
-            var randomX=Random.Range(-xzRange, xzRange);
-            var randomY=Random.Range(distanceBetweenPlatformYMin, distanceBetweenPlatformYMax);
-            platformY= platformY - randomY;
-            var randomZ=Random.Range(-xzRange,xzRange);
-            
-            Instantiate(prefabPlatform,
-                        new Vector3(randomX, platformY, randomZ),
-                        Quaternion.identity);
-            //Debug.Log("GeneratePlatform.js: Generated platform " + 
-            //			"X: " + randomX + " Y: " + platformY +" Z: " +randomZ);
-        }
-    }
-
-    
     void GenerateCollectible()
     {
-        int collectibleY = initialGeneratedCollectibleY;
         GameObject camera = GameObject.Find("Main Camera");
         while (collectibleY*-1 < mapSize &&
                     camera.transform.position.y < distanceThreshold + collectibleY)
@@ -157,7 +159,6 @@ public class GenerateLevel : MonoBehaviour
     
     void GenerateEnemy()
     {
-        int enemyY = initialGeneratedEnemyY;
         GameObject camera = GameObject.Find("Main Camera");
         while (enemyY*-1 < mapSize &&
                     camera.transform.position.y < distanceThreshold + enemyY)
@@ -178,7 +179,6 @@ public class GenerateLevel : MonoBehaviour
 
     void GenerateMovingEnemy()
     {
-        int movingEnemyY = initialGeneratedMovingEnemyY;
         GameObject camera = GameObject.Find("Main Camera");
         while (movingEnemyY*-1 < mapSize &&
                     camera.transform.position.y < distanceThreshold + movingEnemyY)
