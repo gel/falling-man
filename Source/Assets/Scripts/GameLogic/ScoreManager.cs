@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    static int PlayerScore;
-    int jumpingPowerUpScore = 3;
-    int fallDamagePowerUpScore = 6;
+    public int PlayerScore;
+    public int jumpingPowerUpScore = 3;
+    public int fallDamagePowerUpScore = 6;
     
     // Start is called before the first frame update
     void Start()

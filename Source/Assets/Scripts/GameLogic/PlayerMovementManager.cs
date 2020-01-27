@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerMovementManager : MonoBehaviour
 {
-    static float currentVelocity = 0.0f;
-    static int currentComboes = 0;
-    static bool jumpingMode = false;
-    static bool fallDamageMode = true;
-    static float maxFallVelocity = 0.0f;
-    static float maxFallThreshold = 0.5f;
-    static bool fallDamage = false;
-    static float fallDamageStartTime = 0.0f;
-    static float fallSeconds = 0.0f;
+    public float currentVelocity = 0.0f;
+    public int currentComboes = 0;
+    public bool jumpingMode = false;
+    public bool fallDamageMode = true;
+    public float maxFallVelocity = 0.0f;
+    public float maxFallThreshold = 0.5f;
+    public bool fallDamage = false;
+    public float fallDamageStartTime = 0.0f;
+    public float fallSeconds = 0.0f;
 
     // Start is called before the first frame update
     void Start()

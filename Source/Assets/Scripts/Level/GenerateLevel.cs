@@ -23,6 +23,7 @@ public class GenerateLevel : MonoBehaviour
     public int distanceBetweenPlatformYMin = 1;
     public int distanceBetweenPlatformYMax = 3;
     public int initialGeneratedPlatformY = -3;
+    public int platformYDensityMultiplier = 2;
     int platformY;
 
     /* Collectible */
@@ -100,15 +101,21 @@ public class GenerateLevel : MonoBehaviour
         while (platformY * -1 < mapSize &&
             camera.transform.position.y < distanceThreshold + platformY)
         {
-            var randomX=Random.Range(-xzRange, xzRange);
-            var randomY=Random.Range(distanceBetweenPlatformYMin, distanceBetweenPlatformYMax);
-            platformY = platformY - randomY;
-            var randomZ=Random.Range(-xzRange,xzRange);
-            
-            Instantiate(prefabPlatform,
-                        new Vector3(randomX, platformY, randomZ),
-                        Quaternion.identity);
-            //Debug.Log("GeneratePlatform.js: Generated platform X: " + randomX + " Y: " + platformY +" Z: " +randomZ);
+            int maxRandomY = 0;
+            for (int i = 0; i < platformYDensityMultiplier; i++) 
+            {
+                var randomX=Random.Range(-xzRange, xzRange);
+                var randomY=Random.Range(distanceBetweenPlatformYMin, distanceBetweenPlatformYMax);
+                var randomZ=Random.Range(-xzRange,xzRange);
+                
+                maxRandomY = maxRandomY > randomY ? maxRandomY : randomY;
+                Instantiate(prefabPlatform,
+                            new Vector3(randomX, platformY - randomY, randomZ),
+                            Quaternion.identity);
+                //Debug.Log("GeneratePlatform.js: Generated platform X: " + randomX + " Y: " + platformY +" Z: " +randomZ);
+            }
+
+            platformY = platformY - maxRandomY;
         }
     }
 
