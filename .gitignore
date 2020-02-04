@@ -1,48 +1,53 @@
- # ---------------[ Unity generated ]------------------ #
- **/[Ll]ibrary/*
- **/[Tt]emp/*
- **/[Oo]bj/*
- **/[Bb]uild/*
- **/[Bb]uilds/*
- **/UnityGenerated/*
- **/Assets/AssetStoreTools*
+# ---------------[ Unity generated ]------------------ #
+**/[Ll]ibrary/*
+**/[Tt]emp/*
+**/[Oo]bj/*
+**/[Bb]uild/*
+**/[Bb]uilds/*
+**/UnityGenerated/*
+**/Assets/AssetStoreTools*
+Temp/
+Library/
+
+# ----[ Visual Studio / MonoDevelop generated ]------- #
+ExportedObj/
+obj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.pidb.meta
+*.booproj
+*.svd
+ExportedObj/
+obj/
+
+# Unity3D Crash Reports
+sysinfo.txt
  
- # ----[ Visual Studio / MonoDevelop generated ]------- #
- ExportedObj/
- .consulo/
- *.csproj
- *.unityproj
- *.sln
- *.suo
- *.tmp
- *.user
- *.userprefs
- *.pidb
- *.pidb.meta
- *.booproj
- *.svd
- 
- # Unity3D Crash Reports
- sysinfo.txt
- 
- # -------------[ OS generated ]------------------------ #
- .DS_Store
- .DS_Store?
- ._*
- .Spotlight-V100
- .Trashes
- Icon?
- ehthumbs.db
- Thumbs.db
- ios
- ios.app
- 
- # include meta files
- !*.*.meta
- 
- # Builds
- *.apk
- *.unitypackage
+# -------------[ OS generated ]------------------------ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+ios
+ios.app
+
+# include meta files
+!*.*.meta
+
+# Builds
+*.apk
+*.unitypackage
 
 Source/Temp
 Source/Library/metadata
