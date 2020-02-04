@@ -18,6 +18,11 @@ public class Scenes : MonoBehaviour
         levelMessage = "";        
     }
 
+    public void GoToEnd()
+    {
+        Application.LoadLevel("End"); 
+    }
+
     public void GoToMainMenu()
     {
         levelID = 0;
@@ -42,29 +47,32 @@ public class Scenes : MonoBehaviour
                 levelSeed = 1;
                 levelMapSize = 50;
                 levelStartTime = 10;
-                platformBonus = 2;
+                platformBonus = 5;
                 break;
             case 2:
                 levelSeed = 2;
                 levelMapSize = 100;
                 levelStartTime = 10;
-                platformBonus = 2;
+                platformBonus = 5;
                 break;
             case 3:
                 levelSeed = 3;
                 levelMapSize = 200;
                 levelStartTime = 10;
-                platformBonus = 1;
+                platformBonus = 5;
                 break;
             case 4:
                 levelSeed = 30;
                 levelMapSize = 400;
                 levelStartTime = 10;
-                platformBonus = 1;
+                platformBonus = 5;
                 break;
+            case 5:
+                GoToEnd();
+                return;
             default:
                 GoToMainMenu();
-                break;
+                return;
         }
         Application.LoadLevel("Menu"); 
     }
