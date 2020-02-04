@@ -212,13 +212,12 @@ public class GenerateLevel : MonoBehaviour
                 var erandomY=Random.Range(distanceBetweenMovingEnemyYMin, distanceBetweenMovingEnemyYMax);
                 movingEnemyY= movingEnemyY - erandomY;
                 var erandomZ=Random.Range(-xzRange, xzRange);
-                Instantiate(prefabMovingEnemy,
-                            new Vector3(erandomX,
-                            movingEnemyY,
-                            erandomZ),
-                            Quaternion.Euler(0,
-                            90,
-                            0));
+                bool randomXorZRotate = Random.value > 0.5f; 
+                var movingEnemy = Instantiate(prefabMovingEnemy,
+                            new Vector3(erandomX, movingEnemyY, erandomZ),
+                            Quaternion.Euler(0, randomXorZRotate ? 90 : 0, 0));
+
+                movingEnemy.GetComponent<MoveForwardBackward>().ToMoveZ = randomXorZRotate ? false : true;
                 //Debug.Log("GeneratePlatform.js: Generated enemy " + 
                 //			"X: " + erandomX + " Y: " + enemyY +" Z: " +erandomZ);
             }
